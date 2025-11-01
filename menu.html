@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href=" style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg ">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html" id="logo">Maison Lumière</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ms-auto" id="teste">
+                        <a class="nav-link " href="menu.html">Menu</a>
+                        <a class="nav-link" href="reserva.html">Reserva</a>
+                        <a class="nav-link" href="sobre.html">Sobre Nós</a>
+                        <a class="nav-link " href="index.html">Contato</a>
+                    </div>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+
+    <main>
+        <section class="banner d-flex align-items-center justify-content-center text-center text-light">
+
+            <div class="container">
+                <h1 class="display-4 fw-bold">Menu</h1>
+            </div>
+        </section>
+
+        <!--Filtro-->
+         <section class="menu-home">
+            <div class="container py-4 ">
+              
+                <!-- Botões de filtro -->
+                <div class="btn-group mb-5 d-flex justify-content-center " role="group" aria-label="Filtros do Menu">
+                    <button type="button" class="btn btn-outline-dark active" data-filter="all">Todos</button>
+                    <button type="button" class="btn btn-outline-dark" data-filter="cafe">Café da Manhã</button>
+                    <button type="button" class="btn btn-outline-dark" data-filter="almoco">Almoço</button>
+                    <button type="button" class="btn btn-outline-dark" data-filter="jantar">Jantar</button>
+                    <button type="button" class="btn btn-outline-dark" data-filter="bebidas">Bebidas</button>
+                </div>
+
+                <div class="col-md-9 mx-auto">
+                    <div id="menu-filter ">
+
+                        <div class="menu-filter-item" data-category="cafe">
+                            <h5>Pão na chapa <span class="float-end">R$ 8,00</span></h5>
+                            <p class="menu-description">Pão francês, manteiga, café expresso 200 ml</p>
+                        </div>
+
+                        <div class="menu-filter-item" data-category="cafe">
+                            <h5>Café <span class="float-end">R$ 98,00</span></h5>
+                            <p class="menu-description">café expresso 200 ml</p>
+                        </div>
+
+                        <div class="menu-filter-item" data-category="almoco">
+                            <h5>Arroz e Feijão <span class="float-end">R$ 15,00</span></h5>
+                            <p class="menu-description">Arroz e feijão</p>
+                        </div>
+
+                        <div class="menu-filter-item" data-category="almoco">
+                            <h5>Lasanha<span class="float-end">R$ 95,00</span></h5>
+                            <p class="menu-description">Lasanha</p>
+                        </div>
+
+                        <div class="menu-filter-item" data-category="jantar">
+                            <h5>Feijoada <span class="float-end">R$ 47,00</span></h5>
+                            <p class="menu-description">Feijoada tradicional brasileira</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+
+
+                
+    </main>
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+     <script>
+        const buttons = document.querySelectorAll('[data-filter]');
+        const items = document.querySelectorAll('.menu-filter-item');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                buttons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filter = button.getAttribute('data-filter');
+
+                items.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.classList.remove('hide');
+                    } else {
+                        item.classList.add('hide');
+                    }
+                });
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

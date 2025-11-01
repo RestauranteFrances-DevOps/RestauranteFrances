@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+<body>
+      <header>
+        <nav class="navbar navbar-expand-lg ">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#" id="logo">Maison Lumière</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ms-auto" id="teste">
+                        <a class="nav-link" href="menu.html">Menu</a>
+                        <a class="nav-link " href="reserva.html">Reserva</a>
+                        <a class="nav-link" href="sobre.html">Sobre Nós</a>
+                        <a class="nav-link " href="index.html">Contato</a>
+
+                    </div>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+
+     <section class="banner d-flex align-items-center justify-content-center text-center text-light">
+
+            <div class="container">
+                <h1 class="display-4 fw-bold">Reserva</h1>
+            </div>
+        </section>
+
+        <section class="reserva">
+            <div class="container py-5">
+                <div class="col-md-9 mx-auto">
+                    <h2 class="mb-3"> Passe seus Dados</h2>
+                <div class="mb-3">
+                    <form action="#" method="post">
+                                <label for="name" class="form-label text-light">Nome</label>
+                                <input type="text" class="form-control bg-dark text-light border-0" id="name"
+                                    placeholder="Digite seu Nome" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label text-light">Email</label>
+                                <input type="email" class="form-control bg-dark text-light border-0" id="email"
+                                    placeholder="Digite seu Email" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="message" class="form-label text-light">Senha</label>
+                                <input type="password" class="form-control bg-dark text-light border-0" id="senha" placeholder="Digite uma senha" required>
+                            </div>
+
+                              <div class="mb-3">
+                                <label for="message" class="form-label text-light">Confirme a Senha</label>
+                                <input type="password" class="form-control bg-dark text-light border-0" id="confirme_senha" placeholder="Confirme a senha" required>
+                            </div>
+
+                             
+
+
+
+                            <button type="submit" class="btn w-100"
+                                style="background-color: #d4af37; color: #000; font-weight: 600; border: none;">Enviar</button>
+                        </form>
+            </div>
+            </div>
+        </section>
+</body>
+</html>
