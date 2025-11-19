@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
 
 env:
-  IMAGE_NAME: thezyon/restaurantefrances  # ← SEU_DOCKERHUB_USER/nome-imagem
+  IMAGE_NAME: thezyon/restaurantefrances  # ← SEU USUÁRIO AQUI!
 
 jobs:
   build_and_push:
@@ -41,9 +41,15 @@ jobs:
         run: |
           az aks get-credentials --resource-group ${{ secrets.AZ_RESOURCE_GROUP }} --name ${{ secrets.AKS_NAME }} --overwrite-existing
 
-      - name: Update Kubernetes deployment
+      - name: Deploy to AKS
         run: |
-          kubectl set image deployment/restaurante-deployment restaurante=${{ env.IMAGE_NAME }}:${{ github.sha }} --record || kubectl apply -f k8s/
+          # Aplica os manifests Kubernetes (que usarão a imagem do Docker Hub)
+          kubectl apply -f k8s/
+          
+          # Aguarda o IP externo
+          echo "Aguardando IP externo..."
+          sleep 30
+          kubectl get svc restaurante-lb
 
   deploy_appservice:
     runs-on: ubuntu-latest
