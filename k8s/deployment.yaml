@@ -15,42 +15,17 @@ spec:
         app: restaurante
     spec:
       containers:
-      - name: restaurante
-        image: <ACR_LOGIN_SERVER>/restaurantefrances:latest
-        ports:
-        - containerPort: 3000
-        env:
-        - name: PORT
-          value: "3000"
-        - name: DB_HOST
-          valueFrom:
-            secretKeyRef:
-              name: restaurante-secrets
-              key: DB_HOST
-        - name: DB_USER
-          valueFrom:
-            secretKeyRef:
-              name: restaurante-secrets
-              key: DB_USER
-        - name: DB_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: restaurante-secrets
-              key: DB_PASSWORD
-        - name: DB_NAME
-          valueFrom:
-            secretKeyRef:
-              name: restaurante-secrets
-              key: DB_NAME
-        readinessProbe:
-          httpGet:
-            path: /health
-            port: 3000
-          initialDelaySeconds: 5
-          periodSeconds: 10
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 3000
-          initialDelaySeconds: 15
-          periodSeconds: 20
+        - name: restaurante
+          image: thezyon/restaurantefrances:latest  # ← IMAGEM NO DOCKER HUB!
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          env:
+            - name: PORT
+              value: "3000"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
