@@ -1,0 +1,89 @@
+/* ================= Body ================= */
+body {
+    background-color: #000; /* fundo preto */
+    color: gold; /* cor principal das letras */
+    font-family: 'Playfair Display', serif;
+}
+
+/* ================= Títulos ================= */
+h5, #monthYear {
+    color: gold;
+    font-weight: 700;
+}
+
+/* ================= Botões de navegação ================= */
+.calendar-header button {
+    font-size: 1.5rem;
+    color: gold;
+    background: none;
+    border: none;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.calendar-header button:hover {
+    color: #ffd700;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+/* ================= Calendário ================= */
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    text-align: center;
+    background-color: #111;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.day {
+    padding: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #1a1a1a;
+    color: gold;
+    font-weight: 500;
+}
+
+.day:hover:not(.disabled) {
+    background-color: #333;
+}
+
+.day.disabled {
+    color: #555;
+    cursor: not-allowed;
+}
+
+.day.selected {
+    background-color: gold;
+    color: #000;
+    font-weight: bold;
+}
+
+/* ================= Horários ================= */
+#time-slots .list-group-item {
+    margin-bottom: 12px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    background-color: #111;
+    color: gold;
+}
+
+#time-slots .list-group-item:hover {
+    box-shadow: 0 6px 16px rgba(255,215,0,0.5);
+    border-color: gold;
+    transform: translateY(-2px);
+}
+
+/* ================= Título horários ================= */
+.text-gold {
+    color: gold;
+    font-weight: 700;
+}

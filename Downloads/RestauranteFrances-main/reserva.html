@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva Maison Lumière</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html" id="logo">Maison Lumière</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ms-auto" id="teste">
+                        <a class="nav-link" href="menu.html">Menu</a>
+                        <a class="nav-link " href="reserva.html">Reserva</a>
+                        <a class="nav-link" href="sobre.html">Sobre Nós</a>
+                        <a class="nav-link " href="#2">Contato</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="banner d-flex align-items-center justify-content-center text-center text-light">
+            <div class="container">
+                <h1 class="display-4 fw-bold">Reserva</h1>
+            </div>
+        </section>
+
+        <section class="reserva">
+            <div class="container py-5">
+
+                <!-- Stepper -->
+                <div class="row step-row text-center my-3">
+                    <div class="col-3 d-flex align-items-center justify-content-start">
+                        <button class="btn btn-step" id="voltar" type="button">
+                            <i class="bi bi-arrow-left"></i>
+                        </button>
+                    </div>
+
+                    <div class="col-6 d-flex align-items-center justify-content-center">
+                        <div class="steps-container">
+                            <div class="progress-block active"></div>
+                            <div class="progress-block"></div>
+                            <div class="progress-block"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-3 d-flex align-items-center justify-content-end">
+                        <p class="m-0 step-text" id="stepText">1/3 Etapas</p>
+                    </div>
+                </div>
+
+                <div id="Etapas">
+                    <!-- Etapa 1: Dados do usuário -->
+                    <div class="etapa ativo">
+                        <h1 class="mb-5 mt-4 p-3 fw-bold" style="color: gold; font-family: 'Playfair Display', serif;">Passe seus Dados</h1>
+                        <form class="formulario">
+                            <div class="campo">
+                                <label for="inputEmail">Email</label>
+                                <input type="text" class="line-input" placeholder="Digite o Email" id="email">
+                            </div>
+                            <div class="campo">
+                                <label for="inputNome">Nome</label>
+                                <input type="text" class="line-input" placeholder="Digite o nome" id="nome">
+                            </div>
+                            <div class="campo">
+                                <label for="inputCpf">Cpf</label>
+                                <input type="text" class="line-input" placeholder="Digite o Cpf" id="cpf">
+                            </div>
+                            <div class="campo">
+                                <label for="inputTelefone">Telefone</label>
+                                <input type="text" class="line-input" placeholder="Digite o telefone" id="telefone">
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Etapa 2: Calendário -->
+                    <div class="etapa">
+                        <h1 class="mb-4 p-3" style="color: white;">Faça seu Agendamento</h1>
+                        <div class="row">
+                            <!-- Calendário -->
+                            <div class="col-md-6">
+                                <div class="d-flex justify-content-between align-items-center mb-3 calendar-header">
+                                    <button id="prevMonth" class="btn btn-outline-none">&lt;</button>
+                                    <h5 id="monthYear" class="mb-0"></h5>
+                                    <button id="nextMonth" class="btn btn-outline-none">&gt;</button>
+                                </div>
+                                <div id="calendar" class="border rounded p-3 calendar-body"></div>
+                            </div>
+
+                            <!-- Horários -->
+                            <div class="col-md-6">
+                                <h5 class="text-gold">Horários disponíveis:</h5>
+                                <ul id="time-slots" class="list-group mt-3"></ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Etapa 3: Resumo -->
+                    <div class="etapa">
+                        <div class="container py-3">
+                            <h3 class="mb-4 text-center">Resumo da Reserva</h3>
+                            <p><strong>Nome:</strong> <span id="resumoNome"></span></p>
+                            <p><strong>Email:</strong> <span id="resumoEmail"></span></p>
+                            <p><strong>CPF:</strong> <span id="resumoCpf"></span></p>
+                            <p><strong>Telefone:</strong> <span id="resumoTelefone"></span></p>
+                            <p><strong>Dia selecionado:</strong> <span id="resumoCalendarioDia"></span></p>
+                            <p><strong>Horário selecionado:</strong> <span id="resumoCalendarioHorario"></span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-center gap-3 mt-4">
+                    <button class="btn btn-primary" id="proximo">Próximo</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // ======= Stepper =======
+        const etapas = document.querySelectorAll('.etapa');
+        const progressBlocks = document.querySelectorAll('.progress-block');
+        const btnProximo = document.getElementById('proximo');
+        const btnVoltar = document.getElementById('voltar');
+        const stepText = document.getElementById('stepText');
+
+        const reserva = {
+            nome: '',
+            email: '',
+            cpf: '',
+            telefone: '',
+            calendarioDia: '',
+            calendarioHorario: ''
+        };
+
+        let indiceAtual = 0;
+
+        function mostrarEtapa(indice) {
+            etapas.forEach((etapa, i) => {
+                etapa.classList.toggle('ativo', i === indice);
+            });
+
+            progressBlocks.forEach((block, i) => {
+                block.classList.toggle('active', i <= indice);
+            });
+
+            stepText.textContent = `${indice + 1}/${etapas.length} Etapas`;
+
+            // preencher resumo se for etapa 3
+            if (indice === 2) {
+                document.getElementById('resumoNome').textContent = reserva.nome;
+                document.getElementById('resumoEmail').textContent = reserva.email;
+                document.getElementById('resumoCpf').textContent = reserva.cpf;
+                document.getElementById('resumoTelefone').textContent = reserva.telefone;
+                document.getElementById('resumoCalendarioDia').textContent = reserva.calendarioDia;
+                document.getElementById('resumoCalendarioHorario').textContent = reserva.calendarioHorario;
+            }
+        }
+
+        btnProximo.addEventListener('click', () => {
+            // Etapa 1: pegar dados do usuário
+            if (indiceAtual === 0) {
+                reserva.nome = document.getElementById('nome').value;
+                reserva.email = document.getElementById('email').value;
+                reserva.cpf = document.getElementById('cpf').value;
+                reserva.telefone = document.getElementById('telefone').value;
+            }
+
+            // Etapa 2: pegar data selecionada
+            if (indiceAtual === 1 && selectedCalendarDate) {
+                reserva.calendarioDia = selectedCalendarDate.toLocaleDateString('pt-BR');
+            }
+
+            // Avançar para a próxima etapa
+            if (indiceAtual < etapas.length - 1) {
+                indiceAtual++;
+                mostrarEtapa(indiceAtual);
+                document.querySelector('.reserva').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                // Última etapa: enviar todos os dados para o servidor
+                fetch("http://localhost:3000/reserva", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(reserva)
+                })
+                .then(res => res.json())
+                .then(data => {
+                    alert(data.message || "Reserva cadastrada com sucesso!");
+                })
+                .catch(err => {
+                    console.error(err);
+                    alert("Erro ao cadastrar a reserva. Tente novamente.");
+                });
+            }
+        });
+
+        btnVoltar.addEventListener('click', () => {
+            if (indiceAtual > 0) {
+                indiceAtual--;
+                mostrarEtapa(indiceAtual);
+                document.querySelector('.reserva').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+
+        // ======= Calendário =======
+        const calendar = document.getElementById('calendar');
+        const timeSlots = document.getElementById('time-slots');
+        const monthYear = document.getElementById('monthYear');
+        const prevMonthBtn = document.getElementById('prevMonth');
+        const nextMonthBtn = document.getElementById('nextMonth');
+
+        const today = new Date();
+        let selectedCalendarDate = today; // já seleciona o dia atual
+        let currentMonth = today.getMonth();
+        let currentYear = today.getFullYear();
+
+        const calendarHorarios = [
+            "09:00 - 10:00",
+            "10:00 - 12:00",
+            "12:00 - 13:00",
+            "13:00 - 14:00",
+            "14:00 - 15:00",
+            "15:00 - 16:00",
+            "16:00 - 17:00"
+        ];
+
+        function generateCalendar(year, month) {
+            calendar.innerHTML = '';
+
+            const firstDay = new Date(year, month, 1);
+            const lastDay = new Date(year, month + 1, 0);
+            const startDayOfWeek = firstDay.getDay();
+            const totalDays = lastDay.getDate();
+            const options = { month: 'long', year: 'numeric' };
+            monthYear.textContent = firstDay.toLocaleDateString('pt-BR', options);
+
+            for (let i = 0; i < startDayOfWeek; i++) {
+                const emptyCell = document.createElement('div');
+                calendar.appendChild(emptyCell);
+            }
+
+            for (let day = 1; day <= totalDays; day++) {
+                const date = new Date(year, month, day);
+                const dayElement = document.createElement('div');
+                dayElement.textContent = day;
+                dayElement.classList.add('day');
+
+                if (date < new Date(today.getFullYear(), today.getMonth(), today.getDate())) {
+                    dayElement.classList.add('disabled');
+                } else {
+                    dayElement.addEventListener('click', () => selectDay(dayElement, date));
+                }
+
+                // marcar dia atual
+                if (date.toDateString() === today.toDateString()) {
+                    dayElement.classList.add('selected');
+                }
+
+                calendar.appendChild(dayElement);
+            }
+
+            // mostrar horários do dia atual automaticamente
+            fetchHorariosDisponiveis(today);
+        }
+
+        function selectDay(dayElement, date) {
+            document.querySelectorAll('.day.selected').forEach(el => el.classList.remove('selected'));
+            dayElement.classList.add('selected');
+            selectedCalendarDate = date;
+            fetchHorariosDisponiveis(date);
+        }
+
+        function fetchHorariosDisponiveis(date) {
+            const diaFormatado = date.toISOString().split('T')[0]; // YYYY-MM-DD
+            reserva.calendarioDia = date.toLocaleDateString('pt-BR');
+
+            fetch(`http://localhost:3000/reservas/${diaFormatado}`)
+                .then(res => res.json())
+                .then(data => renderTimeSlots(data.horariosReservados))
+                .catch(err => console.error(err));
+        }
+
+        prevMonthBtn.addEventListener('click', () => {
+            currentMonth--;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            generateCalendar(currentYear, currentMonth);
+        });
+
+        nextMonthBtn.addEventListener('click', () => {
+            currentMonth++;
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            generateCalendar(currentYear, currentMonth);
+        });
+
+        function renderTimeSlots(horariosReservados = []) {
+            timeSlots.innerHTML = "";
+
+            calendarHorarios.forEach(time => {
+                const li = document.createElement("li");
+                li.classList.add("list-group-item", "mt-2");
+                li.textContent = time;
+
+                if (horariosReservados.includes(time)) {
+                    li.classList.add("disabled");
+                    li.style.pointerEvents = "none";
+                    li.style.opacity = "0.5";
+                } else {
+                    li.addEventListener("click", () => {
+                        document.querySelectorAll("#time-slots li").forEach(btn => btn.classList.remove("selected"));
+                        li.classList.add("selected");
+                        reserva.calendarioHorario = time;
+                    });
+                }
+                timeSlots.appendChild(li);
+            });
+        }
+
+        generateCalendar(currentYear, currentMonth);
+    </script>
+</body>
+</html>

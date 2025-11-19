@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: restaurante-deployment
+  labels:
+    app: restaurante
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: restaurante
+  template:
+    metadata:
+      labels:
+        app: restaurante
+    spec:
+      containers:
+        - name: restaurante
+          image: thezyon/restaurantefrances:latest  # ← IMAGEM NO DOCKER HUB!
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          env:
+            - name: PORT
+              value: "3000"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
