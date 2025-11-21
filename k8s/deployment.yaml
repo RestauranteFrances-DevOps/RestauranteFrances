@@ -1,31 +1,37 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: restaurante-deployment
-  labels:
-    app: restaurante
+  name: restaurante-frances
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: restaurante
+      app: restaurante-frances
   template:
     metadata:
       labels:
-        app: restaurante
+        app: restaurante-frances
     spec:
       containers:
-        - name: restaurante
-          image: thezyon/restaurantefrances:latest  # ← IMAGEM NO DOCKER HUB!
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 3000
-          env:
-            - name: PORT
-              value: "3000"
-          readinessProbe:
-            httpGet:
-              path: /health
-              port: 3000
-            initialDelaySeconds: 5
-            periodSeconds: 10
+      - name: restaurante
+        image: thezyon/restaurante-frances:latest
+        ports:
+        - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 30
+          periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: restaurante-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: restaurante-frances
