@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy to Azure AKS
 
 on:
   push:
@@ -8,16 +8,52 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
       
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14'
         
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: '.'
-          
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Run tests
+      run: npm test
+      
+    - name: Verify required files
+      run: |
+        test -f verification.txt && echo "✅ verification.txt exists"
+        npm run | grep test && echo "✅ test script exists"
+      
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        
+    - name: Set AKS context
+      run: |
+        az aks get-credentials --resource-group seu-resource-group --name seu-cluster-aks --overwrite-existing
+        
+    - name: Build and push to ACR
+      run: |
+        az acr build --image restaurante-frances:latest --registry restauranteregistry .
+        
+    - name: Deploy to AKS
+      run: |
+        # Atualizar a imagem do deployment
+        kubectl set image deployment/restaurante-frances restaurante-frances=restauranteregistry.azurecr.io/restaurante-frances:latest
+        
+        # Aguardar o rollout
+        kubectl rollout status deployment/restaurante-frances --timeout=180s
+        
+    - name: Verify deployment
+      run: |
+        # Verificar o IP do LoadBalancer (usando o nome CORRETO do serviço)
+        IP=$(kubectl get service restaurante-lb -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+        echo "🎉 IP do LoadBalancer: $IP"
+        echo "📝 URL da aplicação: http://$IP"
+        
+        # Testar a saúde da aplicação
+        curl -f http://$IP/health || echo "A aplicação está iniciando..."
