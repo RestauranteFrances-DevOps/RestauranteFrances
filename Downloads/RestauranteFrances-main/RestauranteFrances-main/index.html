@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg ">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#" id="logo">Maison Lumière</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ms-auto" id="teste">
+                        <a class="nav-link" href="menu.html">Menu</a>
+                        <a class="nav-link " href="reserva.html">Reserva</a>
+                        <a class="nav-link" href="sobre.html">Sobre Nós</a>
+                        <a class="nav-link " href="#2">Contato</a>
+
+                    </div>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+
+    <main>
+        <section class="banner d-flex align-items-center justify-content-center text-center text-light">
+
+            <div class="container">
+                <h1 class="display-4 fw-bold">Bem-Vindo ao Restaurante</h1>
+                <p class="lead">Sabores incriveis esperam por você 🍷 </p>
+                <a href="reserva.html" class="btn btn-warning btn-lg mt-3" id="btn-cardapio">Faça a sua Reserva</a>
+            </div>
+        </section>
+
+    <!--
+      <section class="barra  ">
+            <div class="container py-4 ">
+                <div class="row g-4">
+                    <div class="col-md-3 text-center">
+                        <img src="fotos/fotos2/package-delivery.png" class="img-fluid" width="85" height="85">
+                        <p class="pp fw-bold">Entrega grátis</p>
+                        <p>Entregamos para toda região</p>
+                    </div>
+
+                    <div class="col-md-3 text-center">
+                        <img src="fotos/fotos2/chef.png" class="img-fluid" alt="Foto 2" width="85" height="85">
+                        <p class="pp fw-bold">Chefs</p>
+                        <p>Temos chefs com grande repertório culinário</p>
+                    </div>
+
+                    <div class="col-md-3 text-center">
+                        <img src="fotos/fotos2/dish.png" class="img-fluid" alt="Foto 3" width="85" height="85">
+                        <p class="pp fw-bold">Atendimento</p>
+                        <p>Atendimento personalizado aos clientes</p>
+                    </div>
+
+                    <div class="col-md-3 text-center">
+                        <img src="fotos/fotos2/verification.png" class="img-fluid" alt="Foto 4" width="85" height="85">
+                        <p class="pp fw-bold ">Pagamento</p>
+                        <p>Aceitamos pagamento via pix</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    -->
+
+     <section class="sobrenos">
+            <div class="container py-5">
+                <div class="row ">
+                    <div class="col-md-6 text-start">
+                        <h1 class="display-5 fw-bold ">Sobre Nós</h1>
+                        <div class="d-flex" style="gap: 1rem;">
+                            <div class="sobre vertical-line" style="margin-top: 20px;"></div>
+                            <p class="paragrafo" style="margin-top: 20px;">No coração de São Paulo, nasceu o sonho de
+                                trazer a verdadeira culinária francesa para o Brasil. Cada prato da <strong>Maison
+                                    Lumière</strong> é pensado para unir tradição, sabor e experiências memoráveis.
+                                Entre aromas de manteiga, ervas frescas e cogumelos salteados, destaca-se nosso prato
+                                ícone, o <strong>Champi’Boeuf</strong>, que conquistou paladares e corações desde o
+                                primeiro dia. Mas essa é apenas a primeira página da nossa história. Queríamos mais do
+                                que servir comida: queríamos criar momentos que ficassem na memória, e cada detalhe
+                                revela os desafios, inspirações e aventuras que nos trouxeram até aqui.
+                                <a href="sobre.html">Continue lendo aqui</a> para conhecer toda a jornada da Maison
+                                Lumière e do Champi’Boeuf.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 text-center">
+                        <img src="fotos/fotos2/fototres.jpeg" class="img-fluid " alt="imagem sobre nos"
+                            style="height: 450px; width: 80%; ">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="Menuu d-flex align-items-center  justify-content-center text-center ">
+            <div class="container py-5">
+                <h1 class="menuuu display-4 fw-bold text-center"><a href="#"
+                        class="text-decoration-none text-reset">Menu</a> </h1>
+
+            </div>
+        </section>
+
+
+        <section class="menu-home">
+            <div class="container py-4">
+
+                <!-- Botões de filtro -->
+                <div class="btn-group mb-5 d-flex justify-content-center" role="group" aria-label="Filtros do Menu">
+                    <button type="button" class="btn btn-outline-dark active" data-filter="all">Todos</button>
+                    <button type="button" class="btn btn-outline-dark" data-filter="cafe">Café da Manhã</button>
+                    <button type="button" class="btn btn-outline-dark" data-filter="almoco">Almoço</button>
+                    <button type="button" class="btn btn-outline-dark" data-filter="jantar">Jantar</button>
+                    <button type="button" class="btn btn-outline-dark" data-filter="bebidas">Bebidas</button>
+                </div>
+
+                <div class="col-md-9 mx-auto">
+                    <div id="menu-filter">
+
+                        <!-- CAFÉ DA MANHÃ -->
+                        <div class="menu-filter-item" data-category="cafe">
+                            <h5>Croissant au Beurre <span class="float-end">R$ 16,00</span></h5>
+                            <p class="menu-description">Clássico croissant francês, leve e amanteigado, assado na hora.
+                            </p>
+                        </div>
+
+                        <div class="menu-filter-item" data-category="cafe">
+                            <h5>Omelette Provençale <span class="float-end">R$ 24,00</span></h5>
+                            <p class="menu-description">Omelete francesa com ervas finas, tomate, cebola e azeite.</p>
+                        </div>
+
+                        <div class="menu-filter-item" data-category="cafe">
+                            <h5>Pain au Chocolat <span class="float-end">R$ 18,00</span></h5>
+                            <p class="menu-description">Massa folhada delicada com chocolate francês derretido no
+                                interior.</p>
+                        </div>
+
+                        <div class="menu-filter-item" data-category="cafe">
+                            <h5>Tartine de Confiture <span class="float-end">R$ 15,00</span></h5>
+                            <p class="menu-description">Pão artesanal com geleia de frutas vermelhas e manteiga fresca.
+                            </p>
+                        </div>
+
+                        <!-- ALMOÇO -->
+                        <div class="menu-filter-item" data-category="almoco">
+                            <h5>Quiche Lorraine <span class="float-end">R$ 42,00</span></h5>
+                            <p class="menu-description">Torta salgada de creme, ovos e bacon, servida com salada verde.
+                            </p>
+                        </div>
+
+                        <div class="menu-filter-item" data-category="almoco">
+                            <h5>Boeuf Bourguignon <span class="float-end">R$ 74,00</span></h5>
+                            <p class="menu-description">Cozido francês de carne bovina ao vinho tinto, com cenoura e
+                                cebola caramelizada.</p>
+                        </div>
+
+                        <div class="menu-filter-item" data-category="almoco">
+                            <h5>Coq au Vin <span class="float-end">R$ 68,00</span></h5>
+                            <p class="menu-description">Frango marinado e cozido em vinho tinto com cogumelos e ervas.
+                            </p>
+                        </div>
+
+                        <div class="menu-filter-item" data-category="almoco">
+                            <h5>Ratatouille Maison <span class="float-end">R$ 48,00</span></h5>
+                            <p class="menu-description">Clássico provençal de legumes grelhados e temperados com azeite
+                                e ervas.</p>
+                        </div>
+
+                        <!-- JANTAR -->
+                        <div class="menu-filter-item" data-category="jantar">
+                            <h5>Champi’Boeuf <span class="float-end">R$ 86,00</span></h5>
+                            <p class="menu-description">Prato autoral: carne bem passada com cogumelos frescos, cenoura
+                                palito, purê de batata, cebola e molho madeira artesanal.</p>
+                        </div>
+
+                        <div class="menu-filter-item" data-category="jantar">
+                            <h5>Magret de Canard <span class="float-end">R$ 95,00</span></h5>
+                            <p class="menu-description">Peito de pato grelhado com redução de frutas vermelhas e legumes
+                                salteados.</p>
+                        </div>
+
+                        <div class="menu-filter-item" data-category="jantar">
+                            <h5>Soupe à l’Oignon <span class="float-end">R$ 38,00</span></h5>
+                            <p class="menu-description">Sopa de cebola gratinada com queijo gruyère e pão rústico.</p>
+                        </div>
+
+                        <div class="menu-filter-item" data-category="jantar">
+                            <h5>Filet au Poivre <span class="float-end">R$ 89,00</span></h5>
+                            <p class="menu-description">Filé mignon ao molho de pimenta verde, acompanhado de purê de
+                                batata trufado.</p>
+                        </div>
+
+                        <!-- BEBIDAS -->
+                        <div class="menu-filter-item" data-category="bebidas">
+                            <h5>Vinho Tinto Bordeaux (taça) <span class="float-end">R$ 39,00</span></h5>
+                            <p class="menu-description">Elegante vinho francês de corpo médio, com notas de frutas
+                                vermelhas e carvalho.</p>
+                        </div>
+
+                        <div class="menu-filter-item" data-category="bebidas">
+                            <h5>Champagne Brut <span class="float-end">R$ 52,00</span></h5>
+                            <p class="menu-description">Espumante francês autêntico, seco e refrescante, ideal para
+                                celebrar.</p>
+                        </div>
+
+                        <div class="menu-filter-item" data-category="bebidas">
+                            <h5>Café au Lait <span class="float-end">R$ 12,00</span></h5>
+                            <p class="menu-description">Café espresso com leite vaporizado cremoso, servido no estilo
+                                parisiense.</p>
+                        </div>
+
+                        <div class="menu-filter-item" data-category="bebidas">
+                            <h5>Limonade Française <span class="float-end">R$ 16,00</span></h5>
+                            <p class="menu-description">Limonada artesanal com toque de hortelã e raspas de limão
+                                siciliano.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+              
+        </section>
+        
+
+    
+    </main>
+
+
+    <footer class="text-light" style="background-color: #000;" id="2">
+        <div class="rodape d-flex align-items-center">
+            <div class="container-fluid py-5">
+                <div class="row justify-content-center" style="gap: 40px;">
+
+                    <!-- Coluna 1 -->
+                    <div class="col-md-3 text-start p-3"
+                        style="background-color: #111; border-radius: 12px; box-shadow: 0 0 15px rgba(255,255,255,0.05);">
+                        <h3 class="text-warning mb-3">Endereço</h3>
+                        <p class="mb-1 text-secondary">28 Jackson Blvd Ste</p>
+                        <p class="mb-1 text-secondary">1020 Chicago</p>
+                        <p class="text-secondary">IL 60604-2340.</p>
+                        <p class="text-secondary mb-1">Telefone: +1 800 559 6580</p>
+                        <p class="text-secondary">E-mail: mail@demolink.org</p>
+                    </div>
+
+                    <!-- Coluna 2 -->
+                    <div class="col-md-3 text-start p-3"
+                        style="background-color: #111; border-radius: 12px; box-shadow: 0 0 15px rgba(255,255,255,0.05);">
+                        <h3 class="text-warning mb-3">O que as Pessoas Estão Dizendo</h3>
+
+
+                        <div id="depoimentos">
+                            <p class="text-secondary depoimento ativo">"This is one of the best restaurants I have
+                                visited. Everything was excellent. The food was served in a very creative way. Would
+                                recommend to all."</p>
+                            <p class="text-secondary depoimento">"O ambiente é incrível e o atendimento impecável.
+                                Voltarei com certeza!"</p>
+                            <p class="text-secondary depoimento">"Comida maravilhosa e apresentação digna de alta
+                                gastronomia. Parabéns à equipe!"</p>
+                        </div>
+
+                        <p class="fw-semibold text-light mb-2" id="autor">- Alex Merphy</p>
+
+                        <!-- Pontinhos -->
+                        <div class="text-center mt-3">
+                            <span class="ponto ativo" data-index="0">●</span>
+                            <span class="ponto" data-index="1">●</span>
+                            <span class="ponto" data-index="2">●</span>
+                        </div>
+                    </div>
+
+                    <!-- Coluna 3 -->
+                    <div class="col-md-3 text-start p-3"
+                        style="background-color: #111; border-radius: 12px; box-shadow: 0 0 15px rgba(255,255,255,0.05);">
+                        <h3 class="text-warning mb-3">Fale Conosco</h3>
+                        <form action="#" method="post">
+                            <div class="mb-3">
+                                <label for="name" class="form-label text-light">Nome</label>
+                                <input type="text" class="form-control bg-dark text-light border-0" id="name"
+                                    placeholder="Digite seu Nome" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label text-light">Email</label>
+                                <input type="email" class="form-control bg-dark text-light border-0" id="email"
+                                    placeholder="Digite seu Email" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="message" class="form-label text-light">Mensagem</label>
+                                <textarea class="form-control bg-dark text-light border-0" id="message" rows="4"
+                                    placeholder="Escreva sua mensagem" required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn w-100"
+                                >Enviar</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center py-4 mt-4" style="border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem;">
+            © 2025 <span class="ll"> Maison Lumière</span>. Todos os direitos reservados.
+        </div>
+    </footer>
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const buttons = document.querySelectorAll('[data-filter]');
+        const items = document.querySelectorAll('.menu-filter-item');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                buttons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filter = button.getAttribute('data-filter');
+
+                items.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.classList.remove('hide');
+                    } else {
+                        item.classList.add('hide');
+                    }
+                });
+            });
+        });
+
+
+        const depoimentos = document.querySelectorAll('.depoimento');
+        const pontos = document.querySelectorAll('.ponto');
+        const autor = document.getElementById('autor');
+        const autores = ["- Alex Merphy", "- Julia Roberts", "- Michael Smith"];
+
+        pontos.forEach(ponto => {
+            ponto.addEventListener('click', () => {
+                const index = ponto.dataset.index;
+
+                // Remove classes ativas
+                depoimentos.forEach(d => d.classList.remove('ativo'));
+                pontos.forEach(p => p.classList.remove('ativo'));
+
+                // Adiciona a classe ativa ao clicado
+                depoimentos[index].classList.add('ativo');
+                ponto.classList.add('ativo');
+                autor.textContent = autores[index];
+            });
+        });
+
+    </script>
+
+
+
+</body>
+
+</html>

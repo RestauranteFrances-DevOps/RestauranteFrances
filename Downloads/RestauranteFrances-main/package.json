@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "health": "node -e \"require('./server'); console.log('ok')\""
+    "health": "node -e \"require('./server'); console.log('ok')\"",
+    "test": "echo 'No tests implemented' && exit 0"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,42 @@
+name: CD - Multi Cloud Deploy
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy-azure:
+    name: Deploy to Azure AKS
+    runs-on: ubuntu-latest
+    environment: azure-production
+    
+    steps:
+    - name: Deploy to Azure
+      uses: azure/k8s-deploy@v1
+      with:
+        namespace: 'default'
+        manifests: |
+          deployment.yaml
+        images: |
+          thezyon/restaurante-frances:${{ github.sha }}
+        
+  deploy-gh-pages:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup Pages
+      uses: actions/configure-pages@v3
+      
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v2
+      with:
+        path: '.'
+        
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v2

@@ -1,0 +1,69 @@
+name: Build → Docker Hub → AKS (with App Service fallback)
+
+on:
+  push:
+    branches: [ "main" ]
+
+env:
+  IMAGE_NAME: thezyon/restaurantefrances  # ← SEU USUÁRIO AQUI!
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{ env.IMAGE_NAME }}:latest
+            ${{ env.IMAGE_NAME }}:${{ github.sha }}
+
+  deploy_aks:
+    runs-on: ubuntu-latest
+    needs: build_and_push
+    steps:
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Get AKS credentials
+        run: |
+          az aks get-credentials --resource-group ${{ secrets.AZ_RESOURCE_GROUP }} --name ${{ secrets.AKS_NAME }} --overwrite-existing
+
+      - name: Deploy to AKS
+        run: |
+          # Aplica os manifests Kubernetes (que usarão a imagem do Docker Hub)
+          kubectl apply -f k8s/
+          
+          # Aguarda o IP externo
+          echo "Aguardando IP externo..."
+          sleep 30
+          kubectl get svc restaurante-lb
+
+  deploy_appservice:
+    runs-on: ubuntu-latest
+    needs: build_and_push
+    if: failure()  # Fallback se AKS falhar
+    steps:
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy to App Service
+        run: |
+          az webapp config container set \
+            --name ${{ secrets.APP_NAME }} \
+            --resource-group ${{ secrets.AZ_RESOURCE_GROUP }} \
+            --docker-custom-image-name ${{ env.IMAGE_NAME }}:latest
