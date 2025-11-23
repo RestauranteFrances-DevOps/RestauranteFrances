@@ -1,11 +1,9 @@
-# Dockerfile.nginx
 FROM nginx:alpine
 
-# Copiar o conteúdo da pasta do site para a raiz do nginx
-# IMPORTANT: aqui estamos copiando a pasta inteira RestauranteFrances-main/ -> /usr/share/nginx/html/
-COPY RestauranteFrances-main/ /usr/share/nginx/html/
+# Copia TODO o conteúdo do repositório (onde está index.html, fotos/, css/, js/, etc.)
+COPY . /usr/share/nginx/html/
 
-# Copiar config do nginx (crie nginx-custom.conf no mesmo diretório)
+# Config Nginx
 COPY nginx-custom.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
